@@ -787,6 +787,43 @@ git request-pull v1.0 https://github.com/user/repo master
 
 O resultado inclui a lista de commits, os arquivos alterados e a URL de onde o mantenedor pode fazer o pull.
 
+# Importação Rápida
+Se você precisa trazer o histórico de um projeto antigo (como SVN ou Mercurial) para o Git, usar os comandos tradicionais pode ser muito lento. É aí que entra o `git fast-import`, uma ferramenta de baixo nível feita sob medida para processar e criar objetos do Git.
+
+Ele lê um fluxo de dados formatado e cria objetos Git rapidamente:
+```bash
+git fast-import < dados_exportados.txt
+```
+> O formato de entrada é específico e geralmente gerado por scripts de migração. Cada entrada define commits, blobs (arquivos) e referências no formato que o Git espera.
+
+- Após a importação, verifique o resultado com:
+```bash
+git log --oneline --all
+```
+
+# Limpando o Diretório
+Com o tempo, o diretório do seu projeto pode acumular arquivos temporários ou testes que não foram adicionados ao Git. Para limpar essa bagunça de uma só vez, usamos o `git clean`. Como esse comando apaga arquivos permanentemente do disco, ele possui algumas travas de segurança importantes.
+
+> Antes de apagar qualquer coisa, rode um "simulado" com `git clean -n`. O Git vai te mostrar exatamente o que será jogado fora.
+
+Veja como usá-lo com segurança:
+
+- Para ver quais arquivos seriam removidos sem realmente removê-los:
+```bash
+git clean -n
+```
+- Para remover os arquivos não monitorados (requer o parâmetro **-f** por segurança):
+```bash
+git clean -f
+```
+- Indo um passo além e apagando também as pastas inteiras que não foram adicionadas ao Git, digite:
+```bash
+git clean -fd
+```
+
+A limpeza mais profunda. Além de arquivos e pastas comuns, ele deleta inclusive aquilo que você mandou o Git ignorar no arquivo `.gitignore` (ótimo para quando você quer resetar o ambiente do zero).
+`git clean -fdx`
+ <hr>
 
 ## Desafio: Desfazer um commit sem apagar o histórico
 
