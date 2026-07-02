@@ -455,6 +455,31 @@ Se você rodar o comando `git status`, você verá quer o seu arquivo `README` a
  <hr>
 <br>
 
+## Verificando o Status
+A principal ferramenta utilizada para determinar quais arquivos estão em quais estados é o comando:
+```bash
+git status
+```
+> O comando mostra em qual branch você se encontra. Vamos dizer que você adicione um novo arquivo em seu projeto, um simples arquivo README. 
+
+Caso o arquivo não existe e você execute `git status`, você verá o arquivo não monitorado dessa forma:
+
+`#On branch master`
+
+`#Untracked files:`
+
+`# (use "gid add {files}..." to include in what will be commited)`
+
+`#`
+
+`#README`
+
+`nothing added to commit but untracked files presente (use"git add" to track)`
+
+Pode ver que o seu novo arquivo `README` não está sendo monitorado, pois está listado sob o cabeçalho "**Untracked files**" na saída do comando status. Não monitorado significa basicamente que o Git está vendo um arquivo que não existia na ultima captura (commit).
+
+> O Git não vai inclui-lo nas suas capturas de commit até que você o diga explicitamente que assim o faça. Ele faz isso para que você não inclua acidentalmente arquivos binários gerados, ou outros arquivos que você não tem a intenção de incluir.
+
 ## Desafio: Desfazer um commit sem apagar o histórico
 
 ## Cenário
