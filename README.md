@@ -431,6 +431,27 @@ git commit -m "Mensagem"
 ```
 > Agora, você possui um repositório Git com arquivos monitorados e um commit inicial.
 
+# Clonando um Repositório
+Você pode clonar um repositório com `git clone <URL>`. Por exemplo, caso você queira clonar o repositório do curso de Git e Github do Gustavo Guanabara, você pode executar da seguinte forma:
+```bash
+git clone https://github.com/gustavoguanabara/git-github.git
+```
+> Quando um repositório é inicialmente clonado, todos os seus arquivos estarão monitorados e inalterados porque você simplesmente os obteve e ainda não os editou.
+
+# Registrando Alterações
+Conforme você edita os arquivos do seu clone local de um repositório, o Git passa a vê-los como modificados, porque você os alterou desde seu ultimo commit. Você seleciona esses arquivos modificados e então faz o commit de todas as alterações selecionadas e ao longo do projeto esse ciclo passa a se repetir.
+
+Para passar a monitorar um novo arquivo, use o comando `git add`. Para monitorar o arquivo README, você pode rodar isso:
+```bash
+git add README
+```
+Caso queira adicionar todas as modificações feitas no projeto use o comando:
+```bash
+git add .
+```
+
+Se você rodar o comando `git status`, você verá quer o seu arquivo `README` agora está sendo monitorado. Os arquivos monitorados faram parte do commit.
+
  <hr>
 <br>
 
