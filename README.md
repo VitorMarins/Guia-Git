@@ -384,7 +384,6 @@ touch .gitignore
 
 > **Observação:** O comando `touch` é utilizado em sistemas Linux e macOS. No Windows, você pode criar o arquivo manualmente pelo VS Code ou pelo Explorador de Arquivos.
 
----
 
 ### 2. Adicionar o arquivo ao Git
 
@@ -431,14 +430,14 @@ git commit -m "Mensagem"
 ```
 > Agora, você possui um repositório Git com arquivos monitorados e um commit inicial.
 
-# Clonando um Repositório
+## Clonando um Repositório
 Você pode clonar um repositório com `git clone <URL>`. Por exemplo, caso você queira clonar o repositório do curso de Git e Github do Gustavo Guanabara, você pode executar da seguinte forma:
 ```bash
 git clone https://github.com/gustavoguanabara/git-github.git
 ```
 > Quando um repositório é inicialmente clonado, todos os seus arquivos estarão monitorados e inalterados porque você simplesmente os obteve e ainda não os editou.
 
-# Registrando Alterações
+## Registrando Alterações
 Conforme você edita os arquivos do seu clone local de um repositório, o Git passa a vê-los como modificados, porque você os alterou desde seu ultimo commit. Você seleciona esses arquivos modificados e então faz o commit de todas as alterações selecionadas e ao longo do projeto esse ciclo passa a se repetir.
 
 Para passar a monitorar um novo arquivo, use o comando `git add`. Para monitorar o arquivo README, você pode rodar isso:
@@ -452,8 +451,6 @@ git add .
 
 Se você rodar o comando `git status`, você verá quer o seu arquivo `README` agora está sendo monitorado. Os arquivos monitorados faram parte do commit.
 
- <hr>
-<br>
 
 ## Verificando o Status
 A principal ferramenta utilizada para determinar quais arquivos estão em quais estados é o comando:
@@ -492,7 +489,7 @@ Se você quer ver o que selecionou que irá no seu próximo commit, pode utiliza
 git diff --cached`
 ```
 
-# Commits
+## Commits
 > Armazena o conteúdo atual do índice em um novo commit, juntamente com uma mensagem de registro do usuário que descreve as mudanças.
 
 - Se usa o commit depois de já ter feito o `git add`, para fazer o commit:
@@ -510,7 +507,7 @@ git commit -m "Mensagem" --amend
 ```
 > O **amend** é destrutivo e só deve ser utilizado antes do commit ter sido enviado ao servidor remoto.
 
-# Como Reverter Alterações
+## Como Reverter Alterações
 Em qualquer fase do projeto, você pode querer desfazer alguma coisa. Veremos algumas ferramentas básicas para desfazer modificações que você fez. 
 **Cuidado**, porque você pode desfazer algumas dessas mudanças. Esta é uma das raras situações no Git onde um deslize pode causar a perda definitiva de código.
 
@@ -529,7 +526,7 @@ git reset --soft HEAD~1
 git reset --hard XXXXXXXXXXX
 ```
 
-# Recuperando commit apagado pelo git reset
+## Recuperando commit apagado pelo git reset
 Para visualizar os hashs:
 ```bash
 git reflog
@@ -539,7 +536,7 @@ e para aplicar:
 ```bash
 git merge <hash>
 ```
-# Removendo Arquivos
+## Removendo Arquivos
 > Apagar arquivos no fluxo do Git exige um pouquinho de atenção. Para sumir com um arquivo do seu repositório, você precisa tirá-lo da área de seleção (_stage_) e commitar a mudança. O comando `git rm` facilita isso, deletando o arquivo do Git e do seu diretório local ao mesmo tempo.
 
 - Força a exclusão do arquivo no Git e no seu computador:
@@ -558,7 +555,7 @@ git rm --cached + <arquivo>
 
 > Nota de Segurança: Se você alterou um arquivo e já o adicionou ao _stage_, o Git vai bloquear a remoção comum para proteger seu trabalho. Para prosseguir mesmo assim, você deve forçar a barra usando o argumento `-f`. Como esses dados ainda não estão em um _snapshot_ (commit), eles não poderão ser recuperados depois.
 
-# Movendo e renomeando arquivos
+## Movendo e renomeando arquivos
 
 Diferentemente de muitos sistemas de controle de versão (VCS), o Git não monitora explicitamente arquivos movidos ou renomeados.
 
@@ -586,8 +583,6 @@ git status
 
 O Git identificará que o arquivo foi renomeado.
 
----
-
 ## Como o `git mv` funciona?
 
 Internamente, o comando `git mv` equivale à execução dos seguintes comandos:
@@ -602,41 +597,9 @@ O Git identifica automaticamente que se trata de um renomeamento. Portanto, voc�
 
 A principal vantagem do `git mv` é a praticidade, pois ele executa essas etapas em um único comando.
 
-## Fazendo Stash
-Muitas vezes, quando você está trabalhando em uma parte do seu projeto, as coisas estão em um estado confuso e você quer mudar de branch por um tempo para trabalhar em outra coisa. O problema é, você não quer fazer o commit de um trabalho incompleto somente para voltar a ele mais tarde. A resposta para esse problema é o comando `git stash`.
+## Compartilhar e Atualizar Projetos
 
-Você quer mudar de branch, mas não quer fazer o commit do que você ainda está trabalhando; você irá fazer o stash das modificações. Para fazer um novo stash na sua pilha, execute:
-```bash
-git stash
-```
-> Seu diretório de trabalho estará limpo. Neste momento, você pode facilmente mudar de branch e trabalhar em outra coisa; suas alterações estão armazenadas na sua pilha.
-
-- Para ver stashes que você guardou, você pode usar:
-```bash
-git stash list
-```
-Você pode aplicar aquele que acabou de fazer o stash com o comando mostrado na saída de ajuda do comando stash original:
-
-```bash
-git stash apply
-```
-> Se você quer aplicar um dos stashes mais antigos, você pode especifica-lo, assim:  `git stash apply stash@{2}`. 
-Se você não especificar um stash, Git assume que é o stash mais recente e tenta aplicá-lo.
-
-## Tag
-O Git tem a habilidade de criar tags em pontos específicos na história do código como pontos importantes. Geralmente as pessoas usam esta funcionalidade para marcar pontos de release (v1.0, e por ai vai). Nesta seção, mostraremos como listar as tags disponíveis, como criar novas tags, e quais são os tipos diferentes de tags.
-
-- Para listar as `tags` execute:
-```bash
-git tag
-```
-- Para criar uma`tag` basta executar o seguinte comando, caso não queira criar a `tag anotada`, somente retire os parâmetro `-a` e `-m`.
-```bash
-git tag -a v1.4 -m 'my version 1.4'`.
-```
-# Compartilhar e Atualizar Projetos
-
-#### Fazendo o Fetch
+### Fazendo o Fetch
 - Para pegar dados dos seus projetos remotos, você pode executar:
 ```bash
 git fetch origin
@@ -661,7 +624,7 @@ Por exemplo:
 git push origin develop
 ```
 
-# Repositórios Remotos
+## Repositórios Remotos
 Para ver quais servidores remotos você configurou, execute o comando `git remote`. Ele lista os nomes abreviados de cada repositório remoto que você configurou. 
 
 - Para ver as URLs que o Git armazenou para leitura e escrita, adiciona `-v`:
@@ -680,28 +643,8 @@ git remote remove <nome>`
 ```bash
 git remote show <nome>
 ```
-# Submódulos
-> Os submódulos permitem que você inclua um repositório Git como um subdiretório de outro repositório Git. Isso é útil quando você precisa incorporar bibliotecas externas ou projetos separados dentro do seu projeto principal.
 
-- Para adicionar um submódulo ao seu projeto:
-```bash
-git submodule add <URL> <caminho>`
-```
-- Ao clonar um repositório que contém submódulos, você precisa inicializá-los e atualizá-los:
-```bash
-git submodule init
-git submodule update
-```
-Ou você pode clonar recursivamente, o que faz tudo em um só passo:
-```bash
-git clone --recurse-submodule <URL>
-```
-- Para atualizar todos os submódulos para as ultimas versões remotas:
-```bash
-git submodule update --remote
-```
-
-# Exibindo Objetos
+## Exibindo Objetos
 O comando `git show` exibe informações sobre objetos do Git (commits, tags, árvores, blobs). 
 
 - Para ver os detalhes de um commit específico, incluindo o diff das alterações:
@@ -720,59 +663,8 @@ git show v1.0
 ```bash
 git show`
 ```
-# Log Avançado
-Além do uso básico, o `o git log` oferece várias opções para personalizar a visualização do histórico. 
 
-- Para ver um resumo compacto com uma linha por commit:
-```bash
-git log --oneline`
-```
-- Para exibir um gráfico das branches e merges:
-```bash
-git log --oneline --graph --all
-```
-- Para filtrar commits por autor:
-```bash
-git log --author=="Nome"
-```
-- Para filtrar por data:
-```bash
-git log --since="2024-01-01" --until="2024-12-31"
-```
-- Para ver quais arquivos foram alterados em cada commit:
-```bash
-git log --start
-```
-- Para buscar commits cuja mensagem contenha um texto específico:
-```bash
-git log --grep="texto"
-```
-
-# Diff Avançado
-O `git diff` pode ser utilizado de várias formas avançadas. 
-
-- Para comparar dois branches:
-```bash
-git diff <branc1h>..<branch2>
-```
-- Para comparar dois commits específicos:
-```bash
-git diff <hash1> <hash2>
-```
-- Para ver apenas os nomes dos arquivos alterados:
-```bash
-git diff --name-only
-```
-- Para ver um resumo estatístico das alterações:
-```bash
-git diff --start
-```
-- Para comparar o stage (área de seleção) com o último commit:
-```bash
-git diff --staged
-```
-
-# Solicitando Pull
+## Solicitando Pull
 Antes de existirem as interfaces visuais de plataformas como GitHub ou GitLab, os desenvolvedores já solicitavam a inclusão de seus códigos usando o próprio terminal. 
 O `git request-pull` serve justamente para isso: ele gera uma mensagem pronta que avisa ao dono de um projeto que você tem melhorias para enviar.
 ```bash
@@ -787,55 +679,19 @@ git request-pull v1.0 https://github.com/user/repo master
 
 O resultado inclui a lista de commits, os arquivos alterados e a URL de onde o mantenedor pode fazer o pull.
 
-# Importação Rápida
-Se você precisa trazer o histórico de um projeto antigo (como SVN ou Mercurial) para o Git, usar os comandos tradicionais pode ser muito lento. É aí que entra o `git fast-import`, uma ferramenta de baixo nível feita sob medida para processar e criar objetos do Git.
+# Desafios
 
-Ele lê um fluxo de dados formatado e cria objetos Git rapidamente:
-```bash
-git fast-import < dados_exportados.txt
-```
-> O formato de entrada é específico e geralmente gerado por scripts de migração. Cada entrada define commits, blobs (arquivos) e referências no formato que o Git espera.
+## Desafio I: Desfazer um commit sem apagar o histórico
 
-- Após a importação, verifique o resultado com:
-```bash
-git log --oneline --all
-```
-
-# Limpando o Diretório
-Com o tempo, o diretório do seu projeto pode acumular arquivos temporários ou testes que não foram adicionados ao Git. Para limpar essa bagunça de uma só vez, usamos o `git clean`. Como esse comando apaga arquivos permanentemente do disco, ele possui algumas travas de segurança importantes.
-
-> Antes de apagar qualquer coisa, rode um "simulado" com `git clean -n`. O Git vai te mostrar exatamente o que será jogado fora.
-
-Veja como usá-lo com segurança:
-
-- Para ver quais arquivos seriam removidos sem realmente removê-los:
-```bash
-git clean -n
-```
-- Para remover os arquivos não monitorados (requer o parâmetro **-f** por segurança):
-```bash
-git clean -f
-```
-- Indo um passo além e apagando também as pastas inteiras que não foram adicionadas ao Git, digite:
-```bash
-git clean -fd
-```
-
-A limpeza mais profunda. Além de arquivos e pastas comuns, ele deleta inclusive aquilo que você mandou o Git ignorar no arquivo `.gitignore` (ótimo para quando você quer resetar o ambiente do zero).
-`git clean -fdx`
- <hr>
-
-## Desafio: Desfazer um commit sem apagar o histórico
-
-## Cenário
+### Cenário
 
 Pedro realizou um commit e enviou para o GitHub. Após alguns testes, percebeu que a alteração causou erros no sistema. Como outros membros da equipe já baixaram esse commit, ele não quer apagar o histórico do repositório.
 
-## Solução: git revert
+### Solução: git revert
 
 O comando `git revert` cria um novo commit que desfaz as alterações de um commit anterior, mantendo o histórico do projeto intacto.
 
-## Passo a passo
+### Passo a passo
 
 1. Verificar o histórico de commits
 
@@ -849,34 +705,46 @@ a1b2c3d Adiciona tela de login
 
 e4f5g6h Corrige erro no cadastro
 
+---
+<br>
+
 2. Reverter o commit problemático
 ```bash 
 git revert a1b2c3d
 ```
 O git criará automaticamente um novo commit desfazendo as alterações.
 
+---
+<br>
+
 3. Enviar a correção para o GitHub
 ```bash
 git push origin main
 ```
 
-## Resultado 
+---
+
+### Resultado 
 
 Utilizando o `git revert`, Pedro consegue desfazer um commit incorreto sem alterar o histórico do projeto, garantindo que todos os membros da equipe continuem sincronizados.
 
 ## Desafio 2: Aproveitar apenas um commit de outra branch
 
-## Cenário
+### Cenário
 
 Pedro está trabalhando na branch `nova-feature`, onde realizou vários commits. Durante o desenvolvimento, percebe que um dos commits contém uma correção importante que também precisa estar na branch `main`.
 
 No entanto, ele não quer mesclar toda a branch, apenas aquele commit específico.
 
-## Solução: git cherry-pick
+---
+
+### Solução: git cherry-pick
 
 O comando `git cherry-pick` permite copiar um commit específico de uma branch para outra.
 
-## Passo a passo
+---
+
+### Passo a passo
 
 1. Visualizar o histórico da branch
 ```bash
@@ -889,27 +757,36 @@ a1b2c3d Corrige erro no login
 
 e4f5g6h Adiciona tela de cadastro
 
+---
+<br>
+
 2. Trocar para a branch que receberá a correção
 ```bash
 git checkout main
 ```
 
+---
+<br>
+
 3. Aplicar apenas o commit desejado
+
 ```bash
 git cherry-pick a1b2c3d
 ```
 
 O git copiára apenas as alterações daquele commit para a branch atual.
 
+---
+<br>
+
 4. Enviar a atualização para o repositório remoto
 ```bash
 git push origin main
 ```
 
-## Resultado
+### Resultado
 
 Utilizando `git cherry-pick`, Pedro consegue reaproveitar uma correção importante sem precisar mesclar toda a branch `nova-feature`, evitando alterações desnecessárias na `main`.
- <hr>
 
 ## Colaboradores
 <a href="https://github.com/gavvdev" title="gavvdev">
