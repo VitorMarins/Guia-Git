@@ -335,6 +335,17 @@ Extra: O comando principal para listar a lista de comandos disponíveis no Git �
 
 ---
 
+## Verificação
+Depois de instalar e configurar o Git, É importante garantir que o terminal do seu sistema operacional consegue reconhecê-lo. Para isso, basta abrir o seu Terminal(Prompt de Comando, Powershell ou Git Bash) e digitar um dos comandos abaixo:
+
+`git --version`
+
+Se tudo estiver correto, o terminal retornará o texto indicando a Versão do Git instalada na sua máquina, algo parecido com:
+
+`git version 2.55.0.windows.1`
+
+Se o terminal retornar uma mensagem de erro como "*commando not found*" ou "*Não é reconhecido como um comando interno*", significa que o Git não foi instalado corretamente ou que o caminho dele não foi adicionado as variáveis de ambiente do seu sistema.
+
 # Comandos Git 
 
 Os comandos Git são utilizados para controlar as versões de projetos, registrar alterações e facilitar o trabalho em equipe. A seguir estão os principais comandos utilizados no dia a dia de um desenvolvedor. 
