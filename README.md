@@ -564,6 +564,44 @@ Diferentemente de muitos sistemas de controle de versão (VCS), o Git não monit
 
 Apesar disso, o Git possui o comando `git mv`, que permite mover ou renomear arquivos de forma prática.
 
+## Sintaxe
+
+```bash
+git mv arquivo_origem arquivo_destino
+```
+
+### Exemplo
+
+```bash
+git mv README.txt README.md
+```
+
+**Finalidade:** O comando `git mv` move ou renomeia um arquivo e prepara automaticamente essa alteração para o próximo commit.
+
+Após executar o comando, você pode verificar a alteração utilizando:
+
+```bash
+git status
+```
+
+O Git identificará que o arquivo foi renomeado.
+
+---
+
+## Como o `git mv` funciona?
+
+Internamente, o comando `git mv` equivale à execução dos seguintes comandos:
+
+```bash
+mv README.txt README.md
+git rm README.txt
+git add README.md
+```
+
+O Git identifica automaticamente que se trata de um renomeamento. Portanto, você pode renomear o arquivo manualmente utilizando o explorador de arquivos ou o terminal e, em seguida, executar os comandos `git rm` e `git add` antes de criar um commit.
+
+A principal vantagem do `git mv` é a praticidade, pois ele executa essas etapas em um único comando.
+
 
 
 ## Desafio: Desfazer um commit sem apagar o histórico
