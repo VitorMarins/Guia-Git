@@ -680,6 +680,46 @@ git remote remove <nome>`
 ```bash
 git remote show <nome>
 ```
+# Submódulos
+> Os submódulos permitem que você inclua um repositório Git como um subdiretório de outro repositório Git. Isso é útil quando você precisa incorporar bibliotecas externas ou projetos separados dentro do seu projeto principal.
+
+- Para adicionar um submódulo ao seu projeto:
+```bash
+git submodule add <URL> <caminho>`
+```
+- Ao clonar um repositório que contém submódulos, você precisa inicializá-los e atualizá-los:
+```bash
+git submodule init
+git submodule update
+```
+Ou você pode clonar recursivamente, o que faz tudo em um só passo:
+```bash
+git clone --recurse-submodule <URL>
+```
+- Para atualizar todos os submódulos para as ultimas versões remotas:
+```bash
+git submodule update --remote
+```
+
+# Exibindo Objetos
+O comando `git show` exibe informações sobre objetos do Git (commits, tags, árvores, blobs). 
+
+- Para ver os detalhes de um commit específico, incluindo o diff das alterações:
+```bash
+git show <hash_do_commit>
+```
+- Para ver o conteúdo de um arquivo em um commit específico:
+```bash
+git show <hash>:<caminho/do/arquivo>`
+```
+- Para exibir as informações de uma tag anotada:
+```bash
+git show v1.0
+```
+- Sem argumentos, exibe os detalhes do último commit:
+```bash
+git show`
+```
 
 ## Desafio: Desfazer um commit sem apagar o histórico
 
