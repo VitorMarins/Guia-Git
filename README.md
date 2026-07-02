@@ -491,6 +491,7 @@ Se você quer ver o que selecionou que irá no seu próximo commit, pode utiliza
 ```bash
 git diff --cached`
 ```
+
 # Commits
 > Armazena o conteúdo atual do índice em um novo commit, juntamente com uma mensagem de registro do usuário que descreve as mudanças.
 
@@ -538,6 +539,31 @@ e para aplicar:
 ```bash
 git merge <hash>
 ```
+# Removendo Arquivos
+> Apagar arquivos no fluxo do Git exige um pouquinho de atenção. Para sumir com um arquivo do seu repositório, você precisa tirá-lo da área de seleção (_stage_) e commitar a mudança. O comando `git rm` facilita isso, deletando o arquivo do Git e do seu diretório local ao mesmo tempo.
+
+- Força a exclusão do arquivo no Git e no seu computador:
+```bash
+git rm -f <arquivo>
+```
+
+- Desfaz o monitoramento do arquivo, ou seja, o Git deixa de segui-lo, mas o arquivo físico continua intacto na sua máquina.
+```bash
+git rm --cached + <arquivo>
+```
+- Comando terminal direto (fora do Git) para apagar uma pasta inteira instantaneamente.
+```bash
+`rm -rf <arquivo>`
+```
+
+> Nota de Segurança: Se você alterou um arquivo e já o adicionou ao _stage_, o Git vai bloquear a remoção comum para proteger seu trabalho. Para prosseguir mesmo assim, você deve forçar a barra usando o argumento `-f`. Como esses dados ainda não estão em um _snapshot_ (commit), eles não poderão ser recuperados depois.
+
+# Movendo e renomeando arquivos
+
+Diferentemente de muitos sistemas de controle de versão (VCS), o Git não monitora explicitamente arquivos movidos ou renomeados.
+
+Apesar disso, o Git possui o comando `git mv`, que permite mover ou renomear arquivos de forma prática.
+
 
 
 ## Desafio: Desfazer um commit sem apagar o histórico
