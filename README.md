@@ -491,6 +491,54 @@ Se você quer ver o que selecionou que irá no seu próximo commit, pode utiliza
 ```bash
 git diff --cached`
 ```
+# Commits
+> Armazena o conteúdo atual do índice em um novo commit, juntamente com uma mensagem de registro do usuário que descreve as mudanças.
+
+- Se usa o commit depois de já ter feito o `git add`, para fazer o commit:
+```bash
+git commit -m "Mensagem"
+```
+- Para commitar também os arquivos versionados mesmo não estando no Stage basta adicionar o parâmetro `-a`:
+```bash
+git commit -a -m "Mensagem"
+```
+
+- Refazer commit quando esquecer de adicionar um arquivo no Stage (Diretório de Trabalho, Repositório):
+```bash
+git commit -m "Mensagem" --amend
+```
+> O **amend** é destrutivo e só deve ser utilizado antes do commit ter sido enviado ao servidor remoto.
+
+# Como Reverter Alterações
+Em qualquer fase do projeto, você pode querer desfazer alguma coisa. Veremos algumas ferramentas básicas para desfazer modificações que você fez. 
+**Cuidado**, porque você pode desfazer algumas dessas mudanças. Esta é uma das raras situações no Git onde um deslize pode causar a perda definitiva de código.
+
+- Para apagar o último histórico e resetar tudo:
+```bash
+git reset --hard HEAD~1
+```
+
+- Para desfazer o último commit, mas manter as alterações salvas no Stage:
+```bash
+git reset --soft HEAD~1
+```
+
+- Para forçar o projeto a voltar ao estado de um commit específico (via Hash):
+```bash
+git reset --hard XXXXXXXXXXX
+```
+
+# Recuperando commit apagado pelo git reset
+Para visualizar os hashs:
+```bash
+git reflog
+```
+
+e para aplicar:
+```bash
+git merge <hash>
+```
+
 
 ## Desafio: Desfazer um commit sem apagar o histórico
 
