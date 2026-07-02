@@ -348,89 +348,42 @@ Se o terminal retornar uma mensagem de erro como "*commando not found*" ou "*Nã
 
 # Comandos Git 
 
-Os comandos Git são utilizados para controlar as versões de projetos, registrar alterações e facilitar o trabalho em equipe. A seguir estão os principais comandos utilizados no dia a dia de um desenvolvedor. 
-`git config` - Configura informações do usuário que serão associadas aos commits.
-```bash
-git config --global user.name "Seu Nome"
-git config --global user.email "seuemail@email.com"
-git config --local user.name "Seu Nome"
-git config --local user.email "seuemail@email.com"
-```
-`git init` - Inicializa um novo repositório Git na pasta atual. 
-```bash
-git init
-```
-`git clone` - Cria uma cópia local de um repositório remoto. 
+São ferramentas de linha de comando essenciais para o controle de versão distribuído, permitindo gerenciar alterações no código-fonte, colaborar com equipes e manter um histórico detalhado do projeto.
 
-```bash
-git clone https://github.com/usuario/repositorio.git
-```
-`git status` - Exibe o estado atual do repositório, mostrando arquivos modificados, adicionados e não rastreados. 
+<p align="center">
+  <img src="assets/principais-comandos-git.jpg" alt="comandos Git" width="100%">
+</p>
+
+> Nesta página, será explicado cada comando passo a passo para determinados contextos.
+
+## Criando o Projeto
+Você pode obter um projeto Git fazendo uso de um projeto ou diretório existente e o importando para o Git ou clonando um repositório Git existente a partir de outro servidor (Github).
+
+---
+
+## Inicializando Repositório em um Diretório Existente
+Caso você esteja iniciando o monitoramento de um projeto existente com Git, você precisa ir para o diretório do projeto e digitar: 
+
 ```bash
 git status
 ```
-`git add` - Adiciona arquivos para a área de preparação (staging area).
-```bash
-git add arquivo.txt (Adicionar um arquivo)
-git add . (Adicionar todos os arquivos alterados)
-```
-`git commit` - Registra as alterações adicionadas ao histórico do projeto. 
-```bash
-git commit -m "Adiciona tela de login"
-```
-`git log` - Mostra o histórico de commits do repositório. 
-```bash
-git log
-git log --oneline (Versão resumida)
-```
-`git diff` - Mostra as diferenças entre versões de arquivos. 
+Isso cria um novo subdiretório chamado `.git` que contem todos os arquivos necessários de seu repositório, um esqueleto de repositório Git.
+
+## Criando o arquivo .gitignore
+
+O arquivo `.gitignore` é utilizado para informar ao Git quais arquivos e pastas **não devem ser monitorados ou enviados para o repositório**.
+
+### 1. Criar o arquivo
 
 ```bash
-git diff
+touch .gitignore
 ```
-`git branch` - Lista, cria ou remove branches.
-```bash
-git branch (Listar branches)
-git branch nova-feature (Criar uma branch)
-git branch -d nova-feature (Deleta uma branch)
-```
-`git checkout` - Permite trocar de branch. 
-```bash
-git checkout nova-feature
-git checkout -b nova-feature (Cria e muda para a branch criada)
-```
-`git switch` - Alternativa moderna para trocar de branch. 
-```bash
-git switch nova-feature
-```
-`git merge` - Mescla alterações de uma branch com outra. 
-```bash
-git merge nova-feature
-```
-`git remote add origin` - Conecta o repositório local a um repositório remoto. 
-```bash
-git remote add origin https://github.com/usuario/repositorio.git
-```
-`git push` - Envia commits locais para o repositório remoto. 
-```bash
-git push origin main
-```
-`git pull` - Baixa e integra alterações do repositório remoto. 
-```bash
-git pull origin main
-```
-`git fetch` - Baixa alterações do repositório remoto sem aplicá-las automaticamente. 
-```bash
-git fetch
-```
-`git reset` - Remove arquivos da área de preparação ou retorna o projeto para um estado anterior. 
-```bash
-git reset HEAD arquivo.txt
-```
-`git restore` - Descarta alterações realizadas em arquivos. 
-```bash
-git restore arquivo.txt
-```
+
+**Finalidade:** Cria um arquivo vazio chamado `.gitignore` na pasta atual do projeto.
+
+> **Observação:** O comando `touch` é utilizado em sistemas Linux e macOS. No Windows, você pode criar o arquivo manualmente pelo VS Code ou pelo Explorador de Arquivos.
+
+---
 
  <hr>
 <br>
