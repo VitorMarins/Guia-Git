@@ -480,6 +480,18 @@ Pode ver que o seu novo arquivo `README` não está sendo monitorado, pois está
 
 > O Git não vai inclui-lo nas suas capturas de commit até que você o diga explicitamente que assim o faça. Ele faz isso para que você não inclua acidentalmente arquivos binários gerados, ou outros arquivos que você não tem a intenção de incluir.
 
+## Verificando Mudanças
+Se o comando `git status` for muito vago, você quer saber exatamente o que você alterou, não apenas quais arquivos foram alterados. Você pode utilizar o comando:
+```bash
+git diff
+```
+Apesar do comando `git status` responder essas duas perguntas de maneira geral, o `git diff` mostra as linhas exatas que foram adicionadas e removidas, o patch, por assim dizer.
+
+Se você quer ver o que selecionou que irá no seu próximo commit, pode utilizar:
+```bash
+git diff --cached`
+```
+
 ## Desafio: Desfazer um commit sem apagar o histórico
 
 ## Cenário
