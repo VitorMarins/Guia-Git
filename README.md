@@ -214,7 +214,57 @@ git push
 > **Git** é um sistema de controle de versão que permite registrar, acompanhar e gerenciar as alterações realizadas em um projeto, facilitando o desenvolvimento individual e colaborativo.
  <hr>
 <br>
- 
+
+ # Instalando e configurando o Git
+
+<p align="center">
+  <img src="assets/config-git.png" alt="Git" width="100%">
+</p>
+
+Caso o Git ainda não esteja instalado em seu computador:
+
+1. Acesse:
+
+```text
+https://git-scm.com/downloads
+```
+
+2. Baixe a versão correspondente ao seu sistema operacional;
+3. Execute a instalação mantendo as configurações padrão.
+
+---
+
+## Configurando o Git
+
+Após instalar o Git, abra o terminal (Prompt de Comando, PowerShell ou Terminal do VS Code) e execute:
+
+```bash
+git config --global user.name "Seu Nome"
+git config --global user.email "seuemail@email.com"
+```
+
+Exemplo:
+
+```bash
+git config --global user.name "Mariana Monteiro"
+git config --global user.email "mariana@email.com"
+```
+
+Para verificar as configurações:
+
+```bash
+git config --global --list
+```
+
+Ou consultar cada informação individualmente:
+
+```bash
+git config --global user.name
+git config --global user.email
+```
+
+---
+
 # Comandos Git 
 
 Os comandos Git são utilizados para controlar as versões de projetos, registrar alterações e facilitar o trabalho em equipe. A seguir estão os principais comandos utilizados no dia a dia de um desenvolvedor. 
