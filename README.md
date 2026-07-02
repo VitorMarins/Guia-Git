@@ -374,6 +374,62 @@ Isso cria um novo subdiretório chamado `.git` que contem todos os arquivos nece
 
 O arquivo `.gitignore` é utilizado para informar ao Git quais arquivos e pastas **não devem ser monitorados ou enviados para o repositório**.
 
+### 1. Criar o arquivo
+
+```bash
+touch .gitignore
+```
+
+**Finalidade:** Cria um arquivo vazio chamado `.gitignore` na pasta atual do projeto.
+
+> **Observação:** O comando `touch` é utilizado em sistemas Linux e macOS. No Windows, você pode criar o arquivo manualmente pelo VS Code ou pelo Explorador de Arquivos.
+
+---
+
+### 2. Adicionar o arquivo ao Git
+
+```bash
+git add .gitignore
+```
+
+**Finalidade:** Adiciona o arquivo `.gitignore` à área de preparação (*Staging Area*), indicando que ele fará parte do próximo commit.
+
+---
+
+### 3. Salvar o arquivo no histórico do projeto
+
+```bash
+git commit -m "Adiciona arquivo .gitignore"
+```
+
+**Finalidade:** Cria um novo commit contendo o arquivo `.gitignore`.
+
+> A opção `-m` permite informar uma mensagem descrevendo a alteração realizada.
+
+Exemplo:
+
+```bash
+git commit -m "Adiciona arquivo .gitignore"
+```
+
+### Exemplo completo
+
+```bash
+touch .gitignore
+git add .gitignore
+git commit -m "Adiciona arquivo .gitignore"
+```
+
+> Após esses comandos, o arquivo `.gitignore` passa a fazer parte do histórico do projeto e o Git passa a ignorar os arquivos e pastas especificados nele.
+
+Caso você queira começar a controlar o versionamento dos arquivos existentes, você provavelmente deve começar a monitorar esses arquivos e fazer um commit inicial. Você pode realizar isso com poucos comandos.
+
+```bash
+touch .gitignore
+git add .gitignore
+git commit -m "Mensagem"
+```
+> Agora, você possui um repositório Git com arquivos monitorados e um commit inicial.
 
  <hr>
 <br>
