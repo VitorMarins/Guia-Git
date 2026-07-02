@@ -2,6 +2,7 @@
 
 # Foco no ambiente de terminal
 Interface de Linha de Comando (CLI) que permite que você interaja diretamente com o sistema operacional do seu computador através de comandos.
+
 ## Atalhos
 ⚠️**Atenção (caminhos com espaços)** - Envolva caminhos que contenham espaços entre aspas
 Ex: `cd "C:\Program Files\Meu App"`
@@ -73,7 +74,7 @@ Em projetos de desenvolvimento de software, o controle de versão é essencial p
 
 Imagine que uma equipe está desenvolvendo um sistema. Um integrante cria uma nova funcionalidade enquanto outro corrige um erro. Com o controle de versão, cada um trabalha em sua própria *branch*, registrando suas alterações sem interferir no trabalho do outro. Depois, essas alterações podem ser reunidas no projeto principal.
 
-# Tipos de controle de versão
+## Tipos de controle de versão
 
 <p align="center">
   <img src="assets/tipo-controle-de-versao.png" width="100%">
@@ -215,7 +216,7 @@ git push
  <hr>
 <br>
 
- # Instalando e configurando o Git
+ ## Instalando e configurando o Git
 
 <p align="center">
   <img src="assets/config-git.png" alt="Git" width="100%">
