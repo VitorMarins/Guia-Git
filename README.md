@@ -602,7 +602,38 @@ O Git identifica automaticamente que se trata de um renomeamento. Portanto, voc�
 
 A principal vantagem do `git mv` é a praticidade, pois ele executa essas etapas em um único comando.
 
+## Fazendo Stash
+Muitas vezes, quando você está trabalhando em uma parte do seu projeto, as coisas estão em um estado confuso e você quer mudar de branch por um tempo para trabalhar em outra coisa. O problema é, você não quer fazer o commit de um trabalho incompleto somente para voltar a ele mais tarde. A resposta para esse problema é o comando `git stash`.
 
+Você quer mudar de branch, mas não quer fazer o commit do que você ainda está trabalhando; você irá fazer o stash das modificações. Para fazer um novo stash na sua pilha, execute:
+```bash
+git stash
+```
+> Seu diretório de trabalho estará limpo. Neste momento, você pode facilmente mudar de branch e trabalhar em outra coisa; suas alterações estão armazenadas na sua pilha.
+
+- Para ver stashes que você guardou, você pode usar:
+```bash
+git stash list
+```
+Você pode aplicar aquele que acabou de fazer o stash com o comando mostrado na saída de ajuda do comando stash original:
+
+```bash
+git stash apply
+```
+> Se você quer aplicar um dos stashes mais antigos, você pode especifica-lo, assim:  `git stash apply stash@{2}`. 
+Se você não especificar um stash, Git assume que é o stash mais recente e tenta aplicá-lo.
+
+## Tag
+O Git tem a habilidade de criar tags em pontos específicos na história do código como pontos importantes. Geralmente as pessoas usam esta funcionalidade para marcar pontos de release (v1.0, e por ai vai). Nesta seção, mostraremos como listar as tags disponíveis, como criar novas tags, e quais são os tipos diferentes de tags.
+
+- Para listar as `tags` execute:
+```bash
+git tag
+```
+- Para criar uma`tag` basta executar o seguinte comando, caso não queira criar a `tag anotada`, somente retire os parâmetro `-a` e `-m`.
+```bash
+git tag -a v1.4 -m 'my version 1.4'`.
+```
 
 ## Desafio: Desfazer um commit sem apagar o histórico
 
