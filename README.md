@@ -55,39 +55,98 @@ Ex: `cd "C:\Program Files\Meu App"`
  <hr>
 <br>
 
-# História do Controle de Versão
-O controle de versão surgiu da necessidade de organizar e preservar o histórico de modificações em arquivos, principalmente no processo de desenvolvimento de software. Antes do surgimento dos sistemas modernos, era comum os desenvolvedores realizarem o versionamento de forma manual, criando cópias de arquivos com denominações como `projeto_v1`, `projeto_v2` ou `projeto_final`, o que dificultava o controle das mudanças e a colaboração entre equipes.
+# O que é controle de versão?
 
-Os primeiros Sistemas de Controle de Versão (VCS) surgiram na década de 1970. O **SCCS (Source Code Control System)**, desenvolvido pela Bell Labs em 1972, foi um dos primeiros sistemas de controle de versão. Em 1982, apenas alguns anos depois, foi lançado o **RCS (Revision Control System)**, que facilitou o controle de versões de arquivos individuais.
+O **controle de versão** é o processo de registrar, acompanhar e gerenciar todas as alterações realizadas em um arquivo ou projeto ao longo do tempo. Ele permite que desenvolvedores mantenham um histórico completo das modificações, identifiquem quem realizou cada alteração e recuperem versões anteriores quando necessário.
 
-Com o avanço do desenvolvimento colaborativo, apareceram os sistemas centralizados, como **CVS (Concurrent Versions System)** e, mais tarde, o **Subversion (SVN)**. Em tais sistemas, um servidor central armazenava todo o histórico do projeto, possibilitando que diversos desenvolvedores trabalhassem simultaneamente.
+Em projetos de desenvolvimento de software, o controle de versão é essencial para organizar o trabalho em equipe, evitando que alterações sejam perdidas ou sobrescritas. Ferramentas como o **Git** permitem que vários desenvolvedores trabalhem simultaneamente no mesmo projeto por meio de *branches*, integrando posteriormente as alterações de forma segura.
 
-Em 2005, **Linus Torvalds**, criador do Linux, desenvolveu o **Git** para atender às necessidades de desenvolvimento do kernel Linux. Ao contrário dos sistemas centralizados, o Git utiliza um modelo distribuído, em que cada desenvolvedor possui uma cópia completa do repositório e de todo o histórico de versões. Essa metodologia acelerou o desenvolvimento, tornando-o mais seguro e eficiente, o que fez do Git o sistema de controle de versão mais utilizado atualmente.
+## Principais benefícios
 
-# O que é Controle de Versão?
-O controle de versão, também conhecido como versionamento, é uma prática importante no desenvolvimento de software para rastrear e gerenciar as mudanças feitas no código e em outros arquivos. 
+- Mantém o histórico completo das alterações.
+- Facilita o trabalho colaborativo entre equipes.
+- Permite criar diferentes versões do projeto por meio de *branches*.
+- Possibilita restaurar versões anteriores quando necessário.
+- Identifica quem realizou cada alteração e quando ela foi feita.
 
-Ele registra todas as alterações feitas no código-fonte, permitindo consultar o histórico, comparar mudanças e restaurar versões anteriores quando necessário. Funciona como uma **“fonte única de verdade”** e uma rede de segurança, possibilitando que equipes experimentem e desenvolvam sem risco de perdas irreversíveis.
+## Exemplo prático
 
-Quando há alterações simultâneas ou conflitos, o sistema ajuda a identificar problemas, rastrear quem fez cada modificação e reverter rapidamente o código para um estado estável. Também facilita revisões de código e a análise da evolução do projeto ao longo do tempo.
+Imagine que uma equipe está desenvolvendo um sistema. Um integrante cria uma nova funcionalidade enquanto outro corrige um erro. Com o controle de versão, cada um trabalha em sua própria *branch*, registrando suas alterações sem interferir no trabalho do outro. Depois, essas alterações podem ser reunidas no projeto principal.
 
-O versionamento funciona como uma rede de segurança para proteger o código-fonte de danos irreparáveis, proporcionando a equipe de desenvolvimento a liberdade de experimentar sem medo de causar danos ou criar conflitos de código.
+# Tipos de controle de versão
 
-### Como funciona um controle de versão?
-Basicamente, os arquivos do projeto ficam armazenados em um repositório (local ou remoto) e o histórico de suas versões é salvo nele. Os desenvolvedores podem acessar e resgatar a versão mais recente e fazer uma cópia local, na qual poderão trabalhar em cima dela e continuar o processo de desenvolvimento.
+<p align="center">
+  <img src="assets/tipo-controle-de-versao.png" width="100%">
+</p>
 
-A cada alteração feita, é possível enviar novamente ao repositório, atualizando a versão a partir de outras feitas pelos demais colaboradores.
+>Os sistemas de controle de versão podem ser classificados em dois tipos principais: **centralizado** e **distribuído**.
 
-Dependendo das necessidades específicas de uma equipe e do processo de desenvolvimento, um VCS (sistema de controle de versão) pode ser **local**, **centralizado** ou **distribuído**. O VCS local armazena os arquivos em um sistema local, o VCS centralizado armazena as alterações em um servidor único e o VCS distribuído permite que cada desenvolvedor tenha uma cópia completa do repositório, como no **Git**.
+## 1. Controle de versão centralizado (CVCS)
 
-### Por que usar o controle de versão? Como simplifica a colaboração?
-À medida que as empresas aceleram a entrega de software com DevOps, fica cada vez mais díficil controlar e gerenciar as diferentes versões dos artefatos da aplicação, desde o código e a configuração até o design e a implantação.
+> No controle de versão centralizado, existe um **único servidor central** que armazena todos os arquivos e o histórico de alterações. Os desenvolvedores acessam esse servidor para enviar e receber modificações.
 
-O controle de versão coordena todas as mudanças em um projeto de software, rastreando efetivamente as alterações nos arquivos-fonte, designs e outros ativos digitais necessários para um projeto, além dos metadados relacionados. Sem ele, os projetos podem facilmente se tornar uma confusão de diferentes versões dos arquivos, prejudicando a capacidade da equipe de desenvolvimento de software de entregar resultados.
+### Características
 
-Com um VCS robusto, as equipes de software podem reunir rapidamente todos os arquivos críticos do projeto e promover uma comunicação eficaz para melhorar a qualidade de código. E, como ele oferece uma fonte única de verdade, os stakeholders de toda a equipe DevOps podem colaborar para criar soluções inovadoras: desde os responsáveis pelo planejamento até os profissionais responsáveis pela implementação e manutenção do sistema.
+- Um único repositório central.
+- Dependência do servidor para acessar o histórico.
+- Facilita o gerenciamento por um administrador.
+- Se o servidor ficar indisponível, o trabalho da equipe pode ser interrompido.
+
+### Exemplos
+
+- CVS (Concurrent Versions System)
+- Subversion (SVN)
+
+---
+
+## 2. Controle de versão distribuído (DVCS)
+
+> No controle de versão distribuído, cada desenvolvedor possui uma **cópia completa do repositório**, incluindo todo o histórico de alterações. Assim, é possível trabalhar mesmo sem conexão com a internet e sincronizar as mudanças posteriormente.
+
+### Características
+
+- Cada desenvolvedor possui um repositório completo.
+- Permite trabalhar offline.
+- Maior segurança, pois existem várias cópias do histórico.
+- Facilita o trabalho colaborativo.
+
+### Exemplos
+
+- Git
+- Mercurial
+- Bazaar
+
+---
+
+## Comparação
+
+| Controle Centralizado | Controle Distribuído |
+|------------------------|----------------------|
+| Possui um único servidor central. | Cada desenvolvedor possui uma cópia completa do repositório. |
+| Depende do servidor para acessar o histórico. | Permite trabalhar offline. |
+| Maior risco caso o servidor falhe. | Maior segurança, pois existem várias cópias do projeto. |
+| Exemplo: SVN. | Exemplo: Git. |
+
+## Qual tipo o Git utiliza?
+
+O **Git** é um **sistema de controle de versão distribuído (DVCS)**. Isso significa que cada desenvolvedor possui uma cópia completa do repositório em seu computador, podendo registrar alterações, criar *branches* e consultar o histórico mesmo sem acesso à internet.
+
+> **Resumo:** Os sistemas de controle de versão podem ser **centralizados** ou **distribuídos**. O Git pertence à categoria dos sistemas distribuídos, oferecendo maior flexibilidade, segurança e colaboração entre desenvolvedores.
+
+## Resumo
+
+> **Controle de versão** é o processo de registrar e gerenciar as alterações realizadas em um projeto, permitindo acompanhar seu histórico, colaborar com outras pessoas e recuperar versões anteriores de forma segura.
+
+### Exemplo de fluxo
+
+```text
+Versão 1 → Versão 2 → Versão 3 → Versão 4
+     │          │          │
+ Histórico de todas as alterações
+```
 
  <hr>
+<br>
 <br>
  
 # O que é Git
