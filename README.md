@@ -634,6 +634,52 @@ git tag
 ```bash
 git tag -a v1.4 -m 'my version 1.4'`.
 ```
+# Compartilhar e Atualizar Projetos
+
+#### Fazendo o Fetch
+- Para pegar dados dos seus projetos remotos, você pode executar:
+```bash
+git fetch origin
+```
+Esse comando vai até o projeto remoto e pega todos os dados que você ainda não tem. Depois de fazer isso, você deve ter referencias para todos os branches desse remoto, onde você pode fazer o merge ou inspecionar a qualquer momento.
+
+## Atualizando local
+Incorpora as alterações de um repositório remoto no branch atual. Em seu modo padrão, `git pull` é uma abreviação para `git fetch` seguindo de git merge `FETCH_HEAD`. Por exemplo, se eu estiver em uma branch chamada `develop` e quiser atualizar caso haja atualizações remotamente:
+```bash
+`git pull origin develop`
+```
+## Empurrando seus commits
+```bash
+git push
+``` 
+> é o comando em que você transfere commits a partir do seu repositório local para um repositório remoto. É a contrapartida do `git fetch`, que busca importações e comprometem as agencias locais, utilizando o `git push` as exportações comprometem as filiais remotas.
+
+Para fazer isso, você executa o `git push <nome_do_repositorio><nome_da_sua_branch-_local>`, que vai tentar fazer que `<nome_do_repositorio_remoto>` receba a sua branch `<nome_da_sua_branch_local>` contendo todos seus commits com alterações. 
+
+Por exemplo:
+```bash
+git push origin develop
+```
+
+# Repositórios Remotos
+Para ver quais servidores remotos você configurou, execute o comando `git remote`. Ele lista os nomes abreviados de cada repositório remoto que você configurou. 
+
+- Para ver as URLs que o Git armazenou para leitura e escrita, adiciona `-v`:
+```bash
+git remote -v
+```
+- Para adicionar um novo repositório remoto com um nome abreviado que você pode referências facilmente:
+```bash
+git remo add <apelido> <URL>
+```
+- Para remover uma referencia de repositório remoto:
+```bash
+git remote remove <nome>`
+```
+- Para ver informações destalhadas sobre um repositório remoto específico:
+```bash
+git remote show <nome>
+```
 
 ## Desafio: Desfazer um commit sem apagar o histórico
 
