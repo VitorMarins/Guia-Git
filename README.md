@@ -1,4 +1,4 @@
-# Guia de comandos Git
+# Guia de comandos Git no terminal
 
 # Foco no ambiente de terminal
 Interface de Linha de Comando (CLI) que permite que você interaja diretamente com o sistema operacional do seu computador através de comandos.
