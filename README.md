@@ -366,7 +366,7 @@ Você pode obter um projeto Git fazendo uso de um projeto ou diretório existent
 Caso você esteja iniciando o monitoramento de um projeto existente com Git, você precisa ir para o diretório do projeto e digitar: 
 
 ```bash
-git status
+git init
 ```
 Isso cria um novo subdiretório chamado `.git` que contem todos os arquivos necessários de seu repositório, um esqueleto de repositório Git.
 
@@ -633,7 +633,7 @@ git remote -v
 ```
 - Para adicionar um novo repositório remoto com um nome abreviado que você pode referências facilmente:
 ```bash
-git remo add <apelido> <URL>
+git remote add <apelido> <URL>
 ```
 - Para remover uma referencia de repositório remoto:
 ```bash
