@@ -720,6 +720,73 @@ git show v1.0
 ```bash
 git show`
 ```
+# Log Avançado
+Além do uso básico, o `o git log` oferece várias opções para personalizar a visualização do histórico. 
+
+- Para ver um resumo compacto com uma linha por commit:
+```bash
+git log --oneline`
+```
+- Para exibir um gráfico das branches e merges:
+```bash
+git log --oneline --graph --all
+```
+- Para filtrar commits por autor:
+```bash
+git log --author=="Nome"
+```
+- Para filtrar por data:
+```bash
+git log --since="2024-01-01" --until="2024-12-31"
+```
+- Para ver quais arquivos foram alterados em cada commit:
+```bash
+git log --start
+```
+- Para buscar commits cuja mensagem contenha um texto específico:
+```bash
+git log --grep="texto"
+```
+
+# Diff Avançado
+O `git diff` pode ser utilizado de várias formas avançadas. 
+
+- Para comparar dois branches:
+```bash
+git diff <branc1h>..<branch2>
+```
+- Para comparar dois commits específicos:
+```bash
+git diff <hash1> <hash2>
+```
+- Para ver apenas os nomes dos arquivos alterados:
+```bash
+git diff --name-only
+```
+- Para ver um resumo estatístico das alterações:
+```bash
+git diff --start
+```
+- Para comparar o stage (área de seleção) com o último commit:
+```bash
+git diff --staged
+```
+
+# Solicitando Pull
+Antes de existirem as interfaces visuais de plataformas como GitHub ou GitLab, os desenvolvedores já solicitavam a inclusão de seus códigos usando o próprio terminal. 
+O `git request-pull` serve justamente para isso: ele gera uma mensagem pronta que avisa ao dono de um projeto que você tem melhorias para enviar.
+```bash
+git request-pull <commit_inicial> <url_do_repositorio> <branch>`
+```
+> Se você quiser gerar um relatório comparando o que mudou desde a versão `v1.0` na sua branch `master`, por exemplo, o comando seria:
+
+Exemplo prático:
+```bash
+git request-pull v1.0 https://github.com/user/repo master
+```
+
+O resultado inclui a lista de commits, os arquivos alterados e a URL de onde o mantenedor pode fazer o pull.
+
 
 ## Desafio: Desfazer um commit sem apagar o histórico
 
