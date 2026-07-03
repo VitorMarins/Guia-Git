@@ -527,14 +527,24 @@ git reset --hard XXXXXXXXXXX
 ```
 
 ## Recuperando commit apagado pelo git reset
-Para visualizar os hashs:
+Visualize o histórico de referências:
+
 ```bash
 git reflog
 ```
 
-e para aplicar:
+Encontre o hash do commit desejado e recupere-o.
+
+Se quiser voltar completamente para aquele estado:
+
 ```bash
-git merge <hash>
+git reset --hard <hash>
+```
+
+Se quiser apenas criar uma nova branch a partir dele:
+
+```bash
+git checkout -b recuperacao <hash>
 ```
 ## Removendo Arquivos
 > Apagar arquivos no fluxo do Git exige um pouquinho de atenção. Para sumir com um arquivo do seu repositório, você precisa tirá-lo da área de seleção (_stage_) e commitar a mudança. O comando `git rm` facilita isso, deletando o arquivo do Git e do seu diretório local ao mesmo tempo.
@@ -748,7 +758,7 @@ O comando `git cherry-pick` permite copiar um commit específico de uma branch p
 
 1. Visualizar o histórico da branch
 ```bash
-git log --online
+git log --oneline
 ```
 
 Exemplo:
